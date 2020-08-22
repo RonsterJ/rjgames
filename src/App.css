@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+}
+
+.app-body {
+  height: 90vh;
+  width: 100vw;
+}
+
+
+/* BODY */
+
+/* .app-body {
+  display: flex;
+} */

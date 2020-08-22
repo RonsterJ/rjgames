@@ -1,0 +1,22 @@
+.dash-container {
+    background-color: rgb(240, 138, 14);
+    height: 45vh;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-pic {
+    width: 40%;
+    height: 40vh;
+    background-color: brown;
+    align-self: center;
+    margin-right: 1vw;
+}
+
+.while-away {
+    background-color: burlywood;
+    height: 40vh;
+    width: 50vw;
+    margin-left: 1vw;
+    align-self: center;
+}
