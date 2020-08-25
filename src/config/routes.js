@@ -8,13 +8,13 @@ import Articles from '../pages/Articles/Articles'
 export default ({ currentUser, setCurrentUser }) => (
   <Switch>
     <Route exact path='/' render={() => <Login setCurrentUser={setCurrentUser} />} />
-    <Route exact path='/dashboard' render={() => <Dashboard />}/>
+    <Route exact path={'/dashboard/:username' } render={() => <Dashboard />}/>
 
 
     {/* <Route path='/games/:id' component={GameContainer} />
     <Route path='/games' component={GamesListContainer} /> */}
     <Route path='/login' render={() => <Login setCurrentUser={setCurrentUser} />} />
-    <Route path='/register' component={Register} />
+    <Route path='/register' component={Register} setCurrentUser={setCurrentUser}/>
     <Route currentUser={currentUser} path='/dashboard' />
   </Switch>
 );

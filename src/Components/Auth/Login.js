@@ -6,7 +6,7 @@ require('dotenv').config();
 
 class Login extends Component {
   state = {
-    email: '',
+    username: '',
     password: '',
   };
 
@@ -22,7 +22,7 @@ class Login extends Component {
       .then((res) => {
         console.log(res);
         this.props.setCurrentUser(res.data.token);
-        this.props.history.push('/dashboard');
+        this.props.history.push(`/dashboard/${this.state.username}`);
       })
       .catch((err) => {
         console.log(err.response.status);
@@ -39,7 +39,7 @@ class Login extends Component {
         <div className='authForm'>
             <form onSubmit={this.handleSubmit}>
                 <div className="form-group">                
-                    <input onChange={this.handleChange} type="email" id="email" name="email" placeholder='email' value={this.state.email} />
+                    <input onChange={this.handleChange} type="text" id="username" name="username" placeholder='username' value={this.state.username} />
                 </div>
                 <div className="form-group">
                     <input onChange={this.handleChange} type="password" id="password" name="password" placeholder="password" value={this.state.password} />
