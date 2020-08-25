@@ -1,0 +1,24 @@
+.landingContainer {
+    display: flex;
+    /* overflow: hidden; */
+}
+
+.aboutApp {
+    width: 50vw;
+    height: 95vh;
+    background-color: teal;
+}
+
+.authForm {
+    width: 50vw;
+    height: 95vh;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+}

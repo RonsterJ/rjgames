@@ -1,11 +1,10 @@
 import React from 'react'
 
-import '../../../node_modules/bootstrap/dist/css/bootstrap.css'
 import './header.css'
 
-export default function Header() {
+export default function Header(props) {
     return (
-        <div className='header'>
+        <div className={'header ' + props.header}>
             <h1>RJGames</h1>
         </div>
     )

@@ -2,4 +2,6 @@
     width: 100vw;
     height: 5vh;
     background-color: teal;
+    position: fixed;
+    bottom: 0;
 }
