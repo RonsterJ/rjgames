@@ -3,16 +3,16 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Login from '../Components/Auth/Login';
 import Register from '../Components/Auth/Register';
 import Dashboard from '../pages/Dashboard/Dashboard';
-import Articles from '../pages/Articles/Articles'
+import ArticleContainer from '../pages/Articles/ArticleContainer'
 
-export default ({ currentUser, setCurrentUser }) => (
+export default ({ currentUser, setCurrentUser, logout }) => (
   <Switch>
-    <Route exact path='/' render={() => <Login setCurrentUser={setCurrentUser} />} />
-    <Route exact path={'/dashboard/:username' } render={() => <Dashboard />}/>
-
-
-    {/* <Route path='/games/:id' component={GameContainer} />
-    <Route path='/games' component={GamesListContainer} /> */}
+    <Route exact path='/'>{currentUser ? <Redirect currentUser={currentUser} to='/dashboard/' /> : <Redirect to='/login' />}</Route>
+    <Route path={'/dashboard/'} render={() => (
+    <div id='dash-container'>
+      <Dashboard currentUser={currentUser} logout={logout}/>
+      <ArticleContainer />
+    </div>)}/>
     <Route path='/login' render={() => <Login setCurrentUser={setCurrentUser} />} />
     <Route path='/register' component={Register} setCurrentUser={setCurrentUser}/>
     <Route currentUser={currentUser} path='/dashboard' />

@@ -1,9 +1,23 @@
+:root {
+  --dark: rgb(38, 39, 37);
+}
+
 * {
   margin: 0;
+  color: rgb(235, 235, 235)
+}
+
+.container {
+  width: 100vw;
+  background-color: rgb(69, 77, 69);
+  display: flex;
+  justify-content: center;
 }
 
 .app-body {
-  height: 90vh;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
   width: 100vw;
 }
 
@@ -13,6 +27,12 @@
 
 .expand {
   height: 95vh;
+}
+
+#dash-container {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
 }
 
 /* BODY */

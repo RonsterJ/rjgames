@@ -23,7 +23,7 @@ class App extends React.Component{
         // Decode Token
         const decodedToken = jwt_decode(token);
         // Set State
-        this.setState({currentUser: decodedToken.id})
+        this.setState({currentUser: {id: decodedToken.id, username: decodedToken.username}})
       }
     }
   
@@ -35,8 +35,19 @@ class App extends React.Component{
       // Decode Token
       const decodedToken = jwt_decode(token);
       // Set State
-      this.setState({currentUser: decodedToken.id})
+      this.setState({currentUser: {id: decodedToken.id, username: decodedToken.username}})
     };
+    
+    logout = () => {
+      // Remove Token
+      localStorage.removeItem('token');
+      // Remove Auth Header
+      setAuthHeader();
+      // Set State
+      this.setState({currentUser: ''});
+      // Redirect
+      this.props.history.push('/login');
+    }
 
     toggle = () => {
       if (this.state.dashHide === 'hidden') {
@@ -51,9 +62,8 @@ class App extends React.Component{
     render() {
       return (
       <div className="App">
-        <Header />
         <div className="container">
-          <Routes currentUser={this.state.currentUser} setCurrentUser={this.setCurrentUser} />
+          <Routes currentUser={this.state.currentUser} setCurrentUser={this.setCurrentUser} logout={this.logout}/>
         </div>
         {/* action bar */}
         {/* <ActionBar /> */}

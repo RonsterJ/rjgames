@@ -1,5 +1,39 @@
 .articleContainer {
-    height: 50vh;
-    width: 100vw;
-    background-color: turquoise;
+    height: 78vh;
+    width: 100%;
+    background-color: var(--dark);
+}
+
+.oneArticle {
+    width: 100%;
+    margin: 20px auto;
+    display: flex;
+    border-bottom: 1px solid gray;
+}
+
+.articleMeta {
+    margin-left: 5vw;
+    width: 15vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.articleMeta h3 {
+    width: 100%;
+    justify-content: center;
+}
+
+.articlesHeader {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#expand-button {
+    width: 5vw;
+    background-color: rgb(39, 39, 39);
+    border: 0px;
+    border-bottom: 0.5px solid darkgray;
+    border-right: 0.5px solid darkgray;
+    border-bottom-right-radius: 10px 50%;
 }
