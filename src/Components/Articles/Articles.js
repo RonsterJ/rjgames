@@ -1,29 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Articles(props) {
-    const articles = props.articles.map((articleObj) => {
-    //   return <Article key={articleObj._id} article={articleObj} list={true} />
-
+    const articles = props.articles.reverse().map((articleObj) => {   
         return (
-        <article className='oneArticle' key={articleObj._id}>
-            <div className='articleMeta' key={articleObj._id}>
-                <h3>{articleObj.title}</h3>
-                <p>by: {articleObj.author}</p>
-            </div>
-            <p>{articleObj.articleBody}</p>
-            
-        </article>)
+    <article className='oneArticle' key={articleObj._id}>
+        <div className='articleMeta' key={articleObj._id}>
+            <Link to={`/article/${articleObj._id}`} key={articleObj._id} article={articleObj}><h3>{articleObj.title}</h3></Link>
+            <Link to={`/profile/${articleObj._id}`}><p>by: {articleObj.author}</p></Link>
+        </div>
+        <p>{articleObj.articleBody}</p>            
+    </article>)
     });
-
+    
     return (
-        <div id='articleContainer'  className={'articleContainer ' + props.articlesExpand}>
-            <button id="expand-button" onClick={props.toggle}>exp</button>
-
-                <h2 className='articlesHeader'>Recent articles!</h2>
-
+        <div id='articleContainer'  className={'articleContainer'} key={'key'}>
+            <h2 className='articlesHeader'>Recent articles!</h2>
+            <Link to={`/article/new`}><button id='addButt'>new</button></Link>
             {articles}
         </div>
+        
     )
-
-// export default function Articles(props) {
 }

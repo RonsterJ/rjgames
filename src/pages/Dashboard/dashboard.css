@@ -3,6 +3,12 @@
     width: 100%;
     height: 22vh;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dashContTop {
+    display: flex;
     justify-content: center;
 }
 
@@ -21,4 +27,21 @@
     width: 50vw;
     margin: 0 1vw 0 1vw;
     align-self: center;
+}
+
+.dashToggle {
+    display: flex;
+    justify-content: center;   
+}
+
+#expand-button {
+    width: 100%;
+    background-color: var(--dark);
+    border: 1px;
+    color: rgb(92, 91, 91);
+
+}
+
+#logout {
+    color: black;
 }

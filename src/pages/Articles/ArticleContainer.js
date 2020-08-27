@@ -9,17 +9,16 @@ class ArticlesContainer extends React.Component {
         articles: []
     };
     
-    componentDidMount() {
-        
+    componentDidMount() {        
         ArticleModel.getAllArticles()
         .then((result) => {
             this.setState({articles: result});
-            console.log(this.state)
+            console.log(result)
         })
         .catch((err) => console.log(err))
     }
     render() {
-        return <Articles articles={this.state.articles} />;
+        return <Articles articles={this.state.articles} currentUser={this.currentUser}/>;
     }
 }
 

@@ -18,11 +18,12 @@ class Login extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    axios.post(`${process.env.REACT_APP_API}/auth/login`, this.state)
+    console.log(event)
+    axios.post(`http://localhost:4000/api/v1/auth/login`, this.state)
       .then((res) => {
         console.log(res);
         this.props.setCurrentUser(res.data.token);
-        this.props.history.push(`/dashboard/${this.state.username}`);
+        this.props.history.push('/dashboard');
       })
       .catch((err) => {
         console.log(err.response.status);

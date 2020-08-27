@@ -29,6 +29,11 @@
   height: 95vh;
 }
 
+.delete {
+  color: black;
+  background-color: darkred;
+}
+
 #dash-container {
   display: flex;
   flex-direction: column;

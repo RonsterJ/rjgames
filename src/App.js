@@ -1,10 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Routes from './config/routes';
-import Header from './Components/Header/Header';
-// import Dashboard from './Components/Dashboard/Dashboard';
-// import Articles from './Components/Articles/Articles';
-// import Landing from './Components/Landing/Landing';
 import jwt_decode from 'jwt-decode';
 import setAuthHeader from './utils/setAuthHeader';
 
@@ -35,7 +31,7 @@ class App extends React.Component{
       // Decode Token
       const decodedToken = jwt_decode(token);
       // Set State
-      this.setState({currentUser: {id: decodedToken.id, username: decodedToken.username}})
+      this.setState({currentUser: {id: decodedToken.id}})
     };
     
     logout = () => {
@@ -65,21 +61,9 @@ class App extends React.Component{
         <div className="container">
           <Routes currentUser={this.state.currentUser} setCurrentUser={this.setCurrentUser} logout={this.logout}/>
         </div>
-        {/* action bar */}
-        {/* <ActionBar /> */}
       </div>
     );
   }
 }
 
 export default withRouter(App);
-
-
-        // <Landing landingContainer={this.state.landingContainter} authenticate={this.authenticate}/>  
-        // {/* header */}
-        // <div className={'app-body' + this.state.appBody}>
-        //   {/* dashboard */}
-        //   <Dashboard dashHide={this.state.dashHide}/>
-        //   {/* articles */}
-        //   <Articles articlesExpand={this.state.articlesExpand} toggle={this.toggle}/>
-        // </div>
