@@ -7,9 +7,9 @@ export default function Articles(props) {
     <article className='oneArticle' key={articleObj._id}>
         <div className='articleMeta' key={articleObj._id}>
             <Link to={`/article/${articleObj._id}`} key={articleObj._id} article={articleObj}><h3>{articleObj.title}</h3></Link>
-            <p>by: {articleObj.author}</p>
+            <p className='author'>by: {articleObj.author}</p>
         </div>
-        <p>{articleObj.articleBody}</p>            
+        <p className='artList'>{articleObj.articleBody}</p>            
     </article>)
     });
     
