@@ -18,10 +18,11 @@ class Register extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    axios.post(`${process.env.REACT_APP_API}/auth/register`, this.state)
+    axios.post(`http://localhost:4000/api/v1/auth/register`, this.state)
       .then((res) => {
         console.log(res);
-        this.props.history.push(`/dashboard/${this.state.username}`);
+        this.props.setCurrentUser(this.state.currentUser);
+        this.props.history.push('/dashboard');
       })
       .catch((err) => {
         console.log(err.response.status);
@@ -34,20 +35,27 @@ class Register extends Component {
     console.log(this.props);
     return (
         <div className='landingContainer'>
-            <div className='aboutApp'>About</div>
+            <div className='aboutApp'>
+          <div id='aboutContainer'>
+            <h1>RJGames</h1>
+            <p>Welcome stranger to my humble abode! I hope you will have a swell good time here. This is a space dedicated to gaming and every discussion about games is welcomed!</p><br />
+            <p>In the future this will also be the place where my future games will be housed. If exploring, testing out 'in development' games an help me be a better game designer feel free to join on the right and stay tuned for updates :) </p><br />
+            <p>Looking forward to seeing you in our community!</p>
+          </div>
+        </div>
             <div className='authForm'>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
-                        <input onChange={this.handleChange} type="text" id="username" name="username" placeholder='username' value={this.state.username} />
+                        <input onChange={this.handleChange} className='inputField' type="text" id="username" name="username" placeholder='username' value={this.state.username} />
                     </div>
                     <div className="form-group">
-                        <input onChange={this.handleChange} type="email" id="email" name="email" placeholder='email' value={this.state.email} />
+                        <input onChange={this.handleChange} className='inputField' type="email" id="email" name="email" placeholder='email' value={this.state.email} />
                     </div>
                     <div className="form-group">                
-                        <input onChange={this.handleChange} type="password" id="password" name="password" placeholder='password' value={this.state.password} />
+                        <input onChange={this.handleChange} className='inputField' type="password" id="password" name="password" placeholder='password' value={this.state.password} />
                     </div>
-                    <button type="submit">Register</button>
-                    <p>Already registered? <a href='/login'>Log in</a></p>
+                    <button className='articleSubmit' type="submit">Register</button>
+                    <p className='switch'>Already registered? <a href='/login'>Log in</a></p>
                 </form>
             </div>
       </div>

@@ -1,5 +1,6 @@
 :root {
-  --dark: rgb(38, 39, 37);
+  --dark: rgb(69, 85, 95);
+  --secondary: rgb(87, 130, 156);
 }
 
 * {
@@ -9,8 +10,10 @@
 
 .container {
   width: 100vw;
-  background-color: rgb(69, 77, 69);
+  height: 100vh;
+  background-color: var(--secondary);
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -32,6 +35,9 @@
 .delete {
   color: black;
   background-color: darkred;
+  width: 100px;
+  height: 30px;
+  border: 0px;
 }
 
 #dash-container {
@@ -39,6 +45,13 @@
   flex-direction: column;
   width: 80vw;
 }
+
+.inputField {
+  height: 30px;
+  margin: 5px 0 5px 0;
+}
+
+
 
 /* BODY */
 

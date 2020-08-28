@@ -36,17 +36,24 @@ class Login extends Component {
     // console.log(this.props);
     return (
     <div className='landingContainer'>
-        <div className='aboutApp'>About</div>
+        <div className='aboutApp'>
+          <div id='aboutContainer'>
+            <h1>RJGames</h1>
+            <p>Welcome stranger to my humble abode! I hope you will have a swell good time here. This is a space dedicated to gaming and every discussion about games is welcomed!</p><br />
+            <p>In the future this will also be the place where my future games will be housed. If exploring, testing out 'in development' games an help me be a better game designer feel free to join on the right and stay tuned for updates :) </p><br />
+            <p>Looking forward to seeing you in our community!</p>
+          </div>
+        </div>
         <div className='authForm'>
             <form onSubmit={this.handleSubmit}>
                 <div className="form-group">                
-                    <input onChange={this.handleChange} type="text" id="username" name="username" placeholder='username' value={this.state.username} />
+                    <input onChange={this.handleChange} className='inputField' type="text" id="username" name="username" placeholder='username' value={this.state.username} />
                 </div>
                 <div className="form-group">
-                    <input onChange={this.handleChange} type="password" id="password" name="password" placeholder="password" value={this.state.password} />
+                    <input onChange={this.handleChange} className='inputField' type="password" id="password" name="password" placeholder="password" value={this.state.password} />
                 </div>
-                <button href='/dashboard' className="btn btn-primary float-right" type='submit'>Login</button>
-                <p>Not a member? <a href='/register'>Join!</a></p>
+                <button href='/dashboard' className="articleSubmit" type='submit'>Login</button>
+                <p className='switch'>Not a member? <a href='/register'>Join!</a></p>
             </form>
         </div>
     </div>

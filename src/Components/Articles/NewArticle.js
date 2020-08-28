@@ -33,23 +33,20 @@ handleSubmit = (event) => {
     
     render() {
     return (
-          <div>
-          <form onSubmit={this.handleSubmit}>
-          <h2>Add A New Article</h2>
-          <div>
-            <label htmlFor="">Title</label>
-            <input onInput={this.handleChage} type="text" name="title" />
-          </div>
-          <div>
-            <label htmlFor="">Article</label>
-            <input onInput={this.handleChage} type="text" name="articleBody" />
-          </div>
-          <div>
-            <p>{this.props.currentUser.username}</p>
-          </div>
-          <button onClick={this.handleSubmit} type="submit">Add New</button>
-        </form>
-      </div>
+        <div id='dash-container' className='articleContainer articleForm'>
+            <div className='addForm'>
+                <form  onSubmit={this.handleSubmit}>
+                <h2>Add A New Article</h2>
+                <div>
+                    <input onInput={this.handleChage} id='articleTitle' className='inputField' type="text" name="title" placeholder='Title of your article'/>
+                </div>
+                <div>
+                    <textarea onInput={this.handleChage} id='articleBody' className='inputField' type="text-area" name="articleBody" placeholder='Your article'/>
+                </div>
+                    <button onClick={this.handleSubmit} className='articleSubmit' type="submit">Add New</button>
+                </form>
+            </div>
+        </div>
     );
 }
     

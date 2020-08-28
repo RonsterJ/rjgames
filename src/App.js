@@ -3,6 +3,8 @@ import { withRouter } from 'react-router-dom';
 import Routes from './config/routes';
 import jwt_decode from 'jwt-decode';
 import setAuthHeader from './utils/setAuthHeader';
+import Dashboard from './pages/Dashboard/Dashboard';
+
 
 import './App.css';
 
@@ -31,7 +33,7 @@ class App extends React.Component{
       // Decode Token
       const decodedToken = jwt_decode(token);
       // Set State
-      this.setState({currentUser: {id: decodedToken.id}})
+      this.setState({currentUser: {id: decodedToken.id, username: decodedToken.username}})
     };
     
     logout = () => {
@@ -59,6 +61,7 @@ class App extends React.Component{
       return (
       <div className="App">
         <div className="container">
+          <Dashboard currentUser={this.state.currentUser} logout={this.logout}/>
           <Routes currentUser={this.state.currentUser} setCurrentUser={this.setCurrentUser} logout={this.logout}/>
         </div>
       </div>

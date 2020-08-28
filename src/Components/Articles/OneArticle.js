@@ -17,25 +17,26 @@ export default class OneArticle extends React.Component {
             .catch((err) => console.log(err))
         }
 
-    handleDelete = () => {        
+    handleDelete = (props) => {        
         ArticleModel.deleteArticle(this.state.article._id)
-            .then(() => this.props.history.push('/dashboard'))
-            .then(console.log(this.state.article))
+            .then(() => {
+                console.log(this.props)
+            })
             .catch((err) => console.log(err));
-    };
+            this.props.history.push('/dashboard')
+        };
          
     render() {console.log(this.state.article._id);
         return (
-        <div id='articleContainer'  className={'articleContainer'} key={this.state.article._id}>
-            <h2 className='articlesHeader'>Recent articles!</h2>
-            <article className='oneArticle show' key={this.state.article._id}>
-                <div className='articleMeta' key={this.state.article._id}>
-                    <h3>{this.state.article.title}</h3>
-                    <p>by: {this.state.article.author}</p>
-                </div>
+        <div id='dash-container' className='articleContainer' key={this.state.article._id}>
+            <h2 className='articlesHeader'>{this.state.article.title}</h2>
+                    <p className='articlesHeader'>by: {this.state.article.author}</p>
+            <article id='articleShow' className='oneArticle' key={this.state.article._id}>
                 <p>{this.state.article.articleBody}</p>
-                <Link to={`/article/${this.state.article._id}/edit`}><button>Edit</button></Link>
-                <button className='delete' onClick={this.handleDelete}>Delete</button>           
+                <div id='showButtons'>
+                    <Link to={`/article/${this.state.article._id}/edit`}><button className='articleSubmit'>Edit</button></Link>
+                    <button className='delete' onClick={this.handleDelete}>Delete</button>
+                </div>           
             </article>
         </div>
     )}

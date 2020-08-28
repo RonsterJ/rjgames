@@ -32,26 +32,22 @@ handleSubmit = (event) => {
     
     render() {console.log(this.state)
     return (
+      <div id='dash-container' className='articleContainer articleForm'>
+        <form onSubmit={this.handleSubmit}>
+          <h2>Edit Article</h2>
           <div>
-          <form onSubmit={this.handleSubmit}>
-          <h2>Add A New Article</h2>
-          <div>
-            <label htmlFor="">Title</label>
-            <input onInput={this.handleChage} type="text" name="title" />
+            <input onInput={this.handleChage} className='inputField' type="text" name="title" value={this.state.title}/>
           </div>
           <div>
-            <label htmlFor="">Article</label>
-            <input onInput={this.handleChage} type="text" name="articleBody" />
+            <textarea onInput={this.handleChage} className='textArea' type="text" name="articleBody" value={this.state.articleBody}/>
           </div>
-          <div>
-            <p>{this.props.currentUser.username}</p>
-          </div>
-          <button onClick={this.handleSubmit} type="submit">Add New</button>
+          <button onClick={this.handleSubmit} className='articleSubmit' type="submit">Update</button>
         </form>
       </div>
     );
 }
     
 }
+
 
 export default withRouter(UpdateArticle);

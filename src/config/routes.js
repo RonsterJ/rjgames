@@ -14,7 +14,7 @@ export default ({ currentUser, setCurrentUser, logout }) => (
     <Route exact path='/'>{currentUser ? <Redirect currentUser={currentUser} to='/dashboard' /> : <Redirect to='/login' />}</Route>
     <Route path={'/dashboard'} render={() => (
     <div id='dash-container'>
-      <Dashboard currentUser={currentUser} logout={logout}/>
+      
       <ArticleContainer />
     </div>)}/>
     <Route path='/profile/:username' render={({match}) => <OneUser match={match}/>} />
